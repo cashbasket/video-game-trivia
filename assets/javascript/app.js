@@ -211,7 +211,10 @@ var game = {
 	currentQuestion: {},
 	correctAnswers: 0,
 	incorrectAnswers: 0,
+	unanswered: 0,
 	isGameOver: false,
+	qCountDown: 0,
+
 	init: function() {
 		this.remainingQuestions = questions.slice(0);
 		this.getAndDisplayQuestion();
@@ -221,6 +224,7 @@ var game = {
 		this.remainingQuestions = questions.slice(0);
 		this.correctAnswers = 0;
 		this.incorrectAnswers = 0;
+		this.unanswered = 0;
 		this.isGameOver = false;
 		$('#endDisplay').hide();
 		$('#options').empty();
@@ -229,6 +233,7 @@ var game = {
 	getAndDisplayQuestion: function() {
 		$('#resultDisplay').hide();
 		$('#questionDisplay').show();
+
 		var randomQuestionIndex = getRandomInt(0, this.remainingQuestions.length - 1);
 		this.currentQuestion = this.remainingQuestions[randomQuestionIndex];
         this.remainingQuestions.splice(randomQuestionIndex, 1);
@@ -254,16 +259,41 @@ var game = {
        		var option = $('<a>').attr('id', randomOptionIndex).addClass('answer').text(this.currentQuestion.options[randomOptionIndex].answerText);
        		$('#options').append(optionDiv.append(option));
         }
+        var seconds = 30;  
+		$('#qCountDown').text(seconds);         
+        seconds--;
+
+        this.qCountDown = setInterval(function() {
+            $('#qCountDown').text(seconds);
+            if (seconds == 0) {
+                clearInterval(this.qCountDown);
+               $('#options').empty();
+				game.processAnswer(randomQuestionIndex, -1);	
+            }
+            seconds--;
+        }, 1000);
+        console.log(this.qCountDown);
+
 	},
 	processAnswer: function(questionIndex, answerIndex) {
 		var correct;
 		var correctAnswerText;
-		if(this.currentQuestion.options[answerIndex].isCorrect) {
+
+		//clear the question timer!
+		clearInterval(this.qCountDown);
+
+		if(answerIndex > 0 && this.currentQuestion.options[answerIndex].isCorrect) {
 			this.correctAnswers++;
 			correct = true;
 		}
 		else {
-			this.incorrectAnswers++;
+			if (answerIndex > 0) {
+				this.incorrectAnswers++;
+			}
+			else {
+				this.unanswered++;
+			}
+
 			for(var i = 0 ; i < this.currentQuestion.options.length - 1; i++) {
 				if(this.currentQuestion.options[i].isCorrect) {
 					correctAnswerText = this.currentQuestion.options[i].answerText;
@@ -272,6 +302,7 @@ var game = {
 			}
 			correct = false;
 		}
+
 		if(this.remainingQuestions.length > 0) {
 			//TO-DO: show results for question
 			$('#questionDisplay').hide();
@@ -288,6 +319,7 @@ var game = {
             seconds--;
             var countDown = setInterval(function() {
                 $('#countDown').text(seconds);
+                console.log(seconds);
                 if (seconds == 0) {
                     clearInterval(countDown);
                    $('#options').empty();
@@ -303,6 +335,7 @@ var game = {
 			$('#endText').text("The game is over!");
 			$('#correctTotal').text(this.correctAnswers);
 			$('#incorrectTotal').text(this.incorrectAnswers);
+			$('#unansweredTotal').text(this.unanswered);
 		}
 	}
 };
