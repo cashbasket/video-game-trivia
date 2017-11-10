@@ -212,9 +212,18 @@ var game = {
 	correctAnswers: 0,
 	incorrectAnswers: 0,
 	isGameOver: false,
-	isWinner: false,
 	init: function() {
 		this.remainingQuestions = questions.slice(0);
+		this.getAndDisplayQuestion();
+		$('#endDisplay').hide();
+	},
+	reset: function() {
+		this.remainingQuestions = questions.slice(0);
+		this.correctAnswers = 0;
+		this.incorrectAnswers = 0;
+		this.isGameOver = false;
+		$('#endDisplay').hide();
+		$('#options').empty();
 		this.getAndDisplayQuestion();
 	},
 	getAndDisplayQuestion: function() {
@@ -223,7 +232,6 @@ var game = {
 		var randomQuestionIndex = getRandomInt(0, this.remainingQuestions.length - 1);
 		this.currentQuestion = this.remainingQuestions[randomQuestionIndex];
         this.remainingQuestions.splice(randomQuestionIndex, 1);
-        console.log(this.remainingQuestions);
 
         $('#questionText').text(this.currentQuestion.questionText);
 
@@ -269,14 +277,13 @@ var game = {
 			$('#questionDisplay').hide();
 			$('#resultDisplay').show();
 
-			
 			if(correct) {
 				$('#resultText').text('You got it right!');
 			}
 			else {
 				$('#resultText').text('Sorry, the correct answer was "' + correctAnswerText + '."');
 			}
-			var seconds = 10;  
+			var seconds = 1;  
 			$('#countDown').text(seconds);         
             seconds--;
             var countDown = setInterval(function() {
@@ -293,7 +300,9 @@ var game = {
 			this.isGameOver = true;
 			$('#questionDisplay').hide();
 			$('#endDisplay').show();
-			alert("You're done!");
+			$('#endText').text("The game is over!");
+			$('#correctTotal').text(this.correctAnswers);
+			$('#incorrectTotal').text(this.incorrectAnswers);
 		}
 	}
 };
@@ -302,5 +311,8 @@ $(document).ready(function() {
 	game.init();
 	$('body').on('click', '.rb-answer', function() {
 		game.processAnswer($('#question').attr('id'), $(this).attr('id'));
+	});
+	$('body').on('click', 'button#resetButton', function() {
+		game.reset();
 	});
 });
