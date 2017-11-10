@@ -106,12 +106,12 @@ var questions = [
 				isCorrect: false
 			},
 			{
-				answerText: 'Bald Bull',
-				isCorrect: false
-			},
-			{
 				answerText: 'Mr. Dream',
 				isCorrect: true
+			},
+			{
+				answerText: 'Bald Bull',
+				isCorrect: false
 			},
 			{
 				answerText: 'Super Macho Man',
@@ -150,12 +150,12 @@ var questions = [
 				isCorrect: false
 			},
 			{
-				answerText: 'Super Nintendo Entertainment System',
-				isCorrect: true
-			},
-			{
 				answerText: 'Virtual Boy',
 				isCorrect: false
+			},
+			{
+				answerText: 'Super Nintendo Entertainment System',
+				isCorrect: true
 			}
 		]
 	},
@@ -181,17 +181,17 @@ var questions = [
 	},
 	{
 		questionText: 'What was the code for infinite ammo in the video game "Doom"?',
-		options: [{ 
+		options: [{
+				answerText: 'I-D-K-F-A',
+				isCorrect: true
+			},
+			{ 
 				answerText: 'I-D-D-Q-D',
 				isCorrect: false
 			},
 			{
 				answerText: 'I-D-C-L-I-P',
 				isCorrect: false
-			},
-			{
-				answerText: 'I-D-K-F-A',
-				isCorrect: true
 			},
 			{
 				answerText: 'I-D-S-P-I-S-P-O-P-D',
@@ -256,7 +256,7 @@ var game = {
 	        }
      		optionsUsed.push(randomOptionIndex);
        		var optionDiv = $('<div class="option-div">');
-       		var option = $('<a>').attr('id', randomOptionIndex).addClass('answer').text(this.currentQuestion.options[randomOptionIndex].answerText);
+       		var option = $('<a>').attr('data-id', randomOptionIndex).addClass('answer').text(this.currentQuestion.options[randomOptionIndex].answerText);
        		$('#options').append(optionDiv.append(option));
         }
         var seconds = 30;  
@@ -343,7 +343,7 @@ var game = {
 $(document).ready(function() {
 	game.init();
 	$('body').on('click', '.answer', function() {
-		game.processAnswer($('#question').attr('id'), $(this).attr('id'));
+		game.processAnswer($('#question').attr('id'), $(this).attr('data-id'));
 	});
 	$('body').on('click', 'button#resetButton', function() {
 		game.reset();
