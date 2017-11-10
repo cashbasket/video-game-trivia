@@ -1,6 +1,5 @@
 var questions = [
 	{
-		id: 1,
 		questionText: 'What is the name of the main world in World of Warcraft?',
 		options: [{ 
 				answerText: 'Azeroth',
@@ -21,7 +20,6 @@ var questions = [
 		]
 	},
 	{
-		id: 2,
 		questionText: 'In the video game "Contra," how many lives does the infamous "Konami Code" give you?',
 		options: [{ 
 				answerText: '10',
@@ -42,7 +40,6 @@ var questions = [
 		]
 	},
 	{
-		id: 3,
 		questionText: 'Which Mario game was the first to feature the character Yoshi?',
 		options: [{ 
 				answerText: 'Super Mario World',
@@ -63,7 +60,6 @@ var questions = [
 		]
 	},
 	{
-		id: 4,
 		questionText: 'What is the name of the main villain in the Legend of Zelda series?',
 		options: [{ 
 				answerText: 'Ganon',
@@ -84,7 +80,6 @@ var questions = [
 		]
 	},
 	{
-		id: 5,
 		questionText: 'In the Metroid series, what is the name of the player character?',
 		options: [{ 
 				answerText: 'Toad',
@@ -105,7 +100,6 @@ var questions = [
 		]
 	},
 	{
-		id: 6,
 		questionText: 'What was the name of the end boss in the video game "Punch-Out" AFTER Mike Tyson was removed from the game?',
 		options: [{ 
 				answerText: 'Soda Popinski',
@@ -126,7 +120,6 @@ var questions = [
 		]
 	},
 	{
-		id: 7,
 		questionText: 'The composer for the soundtrack of the video game "Quake" is also the mastermind behind what famous band?',
 		options: [{ 
 				answerText: 'Marilyn Manson',
@@ -147,7 +140,6 @@ var questions = [
 		]
 	},
 	{
-		id: 8,
 		questionText: 'Which Nintendo system was released in 1991?',
 		options: [{ 
 				answerText: 'Nintendo Entertainment System',
@@ -168,7 +160,6 @@ var questions = [
 		]
 	},
 	{
-		id: 9,
 		questionText: 'Which video game featured voice work by legendary Faith No More vocalist Mike Patton?',
 		options: [{ 
 				answerText: 'Resident Evil 5',
@@ -189,7 +180,6 @@ var questions = [
 		]
 	},
 	{
-		id: 10,
 		questionText: 'What was the code for infinite ammo in the video game "Doom"?',
 		options: [{ 
 				answerText: 'I-D-D-Q-D',
@@ -228,7 +218,8 @@ var game = {
 		this.getAndDisplayQuestion();
 	},
 	getAndDisplayQuestion: function() {
-
+		$('#resultDisplay').hide();
+		$('#questionDisplay').show();
 		var randomQuestionIndex = getRandomInt(0, this.remainingQuestions.length - 1);
 		this.currentQuestion = this.remainingQuestions[randomQuestionIndex];
         this.remainingQuestions.splice(randomQuestionIndex, 1);
@@ -257,29 +248,55 @@ var game = {
         }
 	},
 	processAnswer: function(questionIndex, answerIndex) {
+		var correct;
+		var correctAnswerText;
 		if(this.currentQuestion.options[answerIndex].isCorrect) {
 			this.correctAnswers++;
+			correct = true;
 		}
 		else {
 			this.incorrectAnswers++;
-			var correctAnswerText;
 			for(var i = 0 ; i < this.currentQuestion.options.length - 1; i++) {
 				if(this.currentQuestion.options[i].isCorrect) {
 					correctAnswerText = this.currentQuestion.options[i].answerText;
 					break;
 				}
 			}
+			correct = false;
 		}
 		if(this.remainingQuestions.length > 0) {
-			$('#options').empty();
-			this.getAndDisplayQuestion();
+			//TO-DO: show results for question
+			$('#questionDisplay').hide();
+			$('#resultDisplay').show();
+
+			
+			if(correct) {
+				$('#resultText').text('You got it right!');
+			}
+			else {
+				$('#resultText').text('Sorry, the correct answer was "' + correctAnswerText + '."');
+			}
+			var seconds = 10;  
+			$('#countDown').text(seconds);         
+            seconds--;
+            var countDown = setInterval(function() {
+                $('#countDown').text(seconds);
+                if (seconds == 0) {
+                    clearInterval(countDown);
+                   $('#options').empty();
+					game.getAndDisplayQuestion();	
+                }
+                seconds--;
+            }, 1000);
 		}
 		else {
+			this.isGameOver = true;
+			$('#questionDisplay').hide();
+			$('#endDisplay').show();
 			alert("You're done!");
 		}
 	}
 };
-
 
 $(document).ready(function() {
 	game.init();
