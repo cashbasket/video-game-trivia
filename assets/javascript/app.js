@@ -1,6 +1,6 @@
 var questions = [
 	{
-		questionText: 'What is the name of the main world in World of Warcraft?',
+		questionText: 'What is the name of the humans\' homeworld in World of Warcraft?',
 		options: [{ 
 				answerText: 'Azeroth',
 				isCorrect: true
@@ -34,7 +34,7 @@ var questions = [
 				isCorrect: true
 			},
 			{
-				answerText: 'infinite',
+				answerText: 'Infinite',
 				isCorrect: false
 			}
 		]
@@ -250,9 +250,9 @@ var game = {
 	        	}
 	        }
      		optionsUsed.push(randomOptionIndex);
-       		var optionDiv = $('<div>').text(this.currentQuestion.options[randomOptionIndex].answerText);
-       		var rbOption = $('<input type="radio" />').attr('id', randomOptionIndex).attr('name', 'q' + randomQuestionIndex).attr('value', randomOptionIndex).addClass('rb-answer');
-       		$('#options').append(optionDiv.prepend(rbOption));
+       		var optionDiv = $('<div class="option-div">');
+       		var option = $('<a>').attr('id', randomOptionIndex).addClass('answer').text(this.currentQuestion.options[randomOptionIndex].answerText);
+       		$('#options').append(optionDiv.append(option));
         }
 	},
 	processAnswer: function(questionIndex, answerIndex) {
@@ -283,7 +283,7 @@ var game = {
 			else {
 				$('#resultText').text('Sorry, the correct answer was "' + correctAnswerText + '."');
 			}
-			var seconds = 1;  
+			var seconds = 7;  
 			$('#countDown').text(seconds);         
             seconds--;
             var countDown = setInterval(function() {
@@ -309,7 +309,7 @@ var game = {
 
 $(document).ready(function() {
 	game.init();
-	$('body').on('click', '.rb-answer', function() {
+	$('body').on('click', '.answer', function() {
 		game.processAnswer($('#question').attr('id'), $(this).attr('id'));
 	});
 	$('body').on('click', 'button#resetButton', function() {
