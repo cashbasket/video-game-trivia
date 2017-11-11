@@ -12,18 +12,20 @@ body {
 }
 
 .site-content {
-	padding: 0 15%;
-    flex: 1;
-    background: rgba(255, 255, 255, 0.7);
+    flex: 1; 
     text-align: center;
     display: flex;
 }
 
 #contents {
+	margin: 20px 0;
+	padding: 50px;
+	background: rgba(255, 255, 255, 0.7);
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	min-width: 100%;
+	border: 1px solid #000;
 }
 
 #contents p {
