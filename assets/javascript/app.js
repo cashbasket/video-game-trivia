@@ -175,7 +175,7 @@ var questions = [
 				isCorrect: false
 			},
 			{
-				answerText: 'Silent Hill',
+				answerText: 'Silent Hill 3',
 				isCorrect: false
 			},
 			{
