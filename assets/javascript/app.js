@@ -87,7 +87,7 @@ var questions = [
 		questionText: 'In the Metroid series, what is the name of the player character?',
 		questionImage: 'samus.jpg',
 		options: [{ 
-				answerText: 'Toad',
+				answerText: 'Cloud Strife',
 				isCorrect: false
 			},
 			{
@@ -99,7 +99,7 @@ var questions = [
 				isCorrect: true
 			},
 			{
-				answerText: 'Jimmy Carter',
+				answerText: 'Bela Lugosi',
 				isCorrect: false
 			}
 		]
