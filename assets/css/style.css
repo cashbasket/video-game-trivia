@@ -71,6 +71,7 @@ h2 {
 }
 #answerImage img {
 	margin: 0 auto;
+	max-height: 300px;
 }
 
 .count-down {

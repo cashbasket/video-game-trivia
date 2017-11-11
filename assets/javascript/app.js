@@ -1,7 +1,7 @@
 var questions = [
 	{
 		questionText: 'What is the name of the humans\' homeworld in World of Warcraft?',
-		questionImage: 'azeroth.jpg',
+		questionImage: 'https://media.giphy.com/media/j3ROQN30j1Xnq/giphy.gif',
 		options: [{ 
 				answerText: 'Azeroth',
 				isCorrect: true
@@ -22,7 +22,7 @@ var questions = [
 	},
 	{
 		questionText: 'In the video game "Contra," how many lives does the infamous "Konami Code" give you?',
-		questionImage: 'contra.jpg',
+		questionImage: 'https://media.giphy.com/media/DpXqHdILXRRDi/giphy.gif',
 		options: [{ 
 				answerText: '10',
 				isCorrect: false
@@ -43,7 +43,7 @@ var questions = [
 	},
 	{
 		questionText: 'Which Mario game was the first to feature the character Yoshi?',
-		questionImage: 'yoshi.jpg',
+		questionImage: 'https://media.giphy.com/media/1ORxrBqFw1fVu/giphy.gif',
 		options: [{ 
 				answerText: 'Super Mario World',
 				isCorrect: true
@@ -64,7 +64,7 @@ var questions = [
 	},
 	{
 		questionText: 'What is the name of the main villain in the Legend of Zelda series?',
-		questionImage: 'ganon.png',
+		questionImage: 'https://media.giphy.com/media/17tG1Mff3fAMU/giphy.gif',
 		options: [{ 
 				answerText: 'Ganon',
 				isCorrect: true
@@ -85,7 +85,7 @@ var questions = [
 	},
 	{
 		questionText: 'In the Metroid series, what is the name of the player character?',
-		questionImage: 'samus.jpg',
+		questionImage: 'https://media.giphy.com/media/3nYlRxNj3iAms/giphy.gif',
 		options: [{ 
 				answerText: 'Cloud Strife',
 				isCorrect: false
@@ -105,15 +105,15 @@ var questions = [
 		]
 	},
 	{
-		questionText: 'What was the name of the end boss in the video game "Punch-Out" AFTER Mike Tyson was removed from the game?',
-		questionImage: 'mr-dream.jpg',
+		questionText: 'What was the name of the enemy you face immediately BEFORE facing Mike Tyson?',
+		questionImage: 'https://media.giphy.com/media/nbkj9HIm3m6Yw/giphy.gif',
 		options: [{ 
 				answerText: 'Soda Popinski',
 				isCorrect: false
 			},
 			{
 				answerText: 'Mr. Dream',
-				isCorrect: true
+				isCorrect: false
 			},
 			{
 				answerText: 'Bald Bull',
@@ -121,13 +121,13 @@ var questions = [
 			},
 			{
 				answerText: 'Super Macho Man',
-				isCorrect: false
+				isCorrect: true
 			}
 		]
 	},
 	{
 		questionText: 'The composer for the soundtrack of the video game "Quake" is also the mastermind behind what highly influential  band?',
-		questionImage: 'nine-inch-nails.jpg',
+		questionImage: 'https://media.giphy.com/media/Q25XQvcPhghRS/giphy.gif',
 		options: [{ 
 				answerText: 'Marilyn Manson',
 				isCorrect: false
@@ -148,7 +148,7 @@ var questions = [
 	},
 	{
 		questionText: 'Which Nintendo system was released in the United States in 1991?',
-		questionImage: 'snes.jpg',
+		questionImage: 'https://media.giphy.com/media/vXFHBHbf2jO9y/giphy.gif',
 		options: [{ 
 				answerText: 'Nintendo Entertainment System',
 				isCorrect: false
@@ -169,7 +169,7 @@ var questions = [
 	},
 	{
 		questionText: 'Which video game featured voice work by legendary Faith No More vocalist Mike Patton?',
-		questionImage: 'the-darkness.jpg',
+		questionImage: 'assets/images/the-darkness.jpg',
 		options: [{ 
 				answerText: 'Resident Evil 5',
 				isCorrect: false
@@ -190,7 +190,7 @@ var questions = [
 	},
 	{
 		questionText: 'What was the code for infinite ammo in the video game "Doom"?',
-		questionImage: 'doom.jpg',
+		questionImage: 'https://media.giphy.com/media/hKyWAN3gQyCsM/giphy.gif',
 		options: [{
 				answerText: 'I-D-K-F-A',
 				isCorrect: true
@@ -328,7 +328,7 @@ var game = {
 		}
 		$('#resultText').text('The correct answer is "' + correctAnswerText + '."');
 
-		var img = $('<img />').attr('src', 'assets/images/' + this.currentQuestion.questionImage).attr('alt', 'Image of the correct answer').addClass('img-responsive');
+		var img = $('<img />').attr('src', this.currentQuestion.questionImage).attr('alt', 'Image of the correct answer').addClass('img-responsive');
 		$('#answerImage').append(img);
 
 		// one biiiiig setInterval
