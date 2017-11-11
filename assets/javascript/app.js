@@ -318,29 +318,31 @@ var game = {
 		$('#resultDisplay').show();
 
 		if(status === 'correct') {
-			$('#resultText').text('You got it right! The correct answer was "' + correctAnswerText + '."');
+			$('#resultTextIntro').text('You got it right! ');
 		}
 		else if (status === 'incorrect') {
-			$('#resultText').text('Sorry, the correct answer was "' + correctAnswerText + '."');
+			$('#resultTextIntro').text('Sorry, you got it wrong. ');
 		}
 		else {
-			$('#resultText').text('You ran out of time! The correct answer was "' + correctAnswerText + '."');
+			$('#resultTextIntro').text('You ran out of time! ');
 		}
+		$('#resultText').text('The correct answer is "' + correctAnswerText + '."');
+
 		var img = $('<img />').attr('src', 'assets/images/' + this.currentQuestion.questionImage).attr('alt', 'Image of the correct answer').addClass('img-responsive');
 		$('#answerImage').append(img);
 
 		// one biiiiig setInterval
 		var seconds = 7;  
-		$('#countDown').text('Time until next question: ' + seconds);
+		if(game.remainingQuestions.length > 0) {
+    		$('#countDownIntro').text('Time until next question: ');
+    	}
+    	else {
+    		$('#countDownIntro').text('Time until results screen: ');
+    	}
+    	$('#countDown').text(seconds);
         seconds--;
         var countDown = setInterval(function() {
-        	if(game.remainingQuestions.length > 0) {
-        		$('#countDown').text('Time until next question: ' + seconds);
-        	}
-        	else {
-        		$('#countDown').text('Time until results screen: ' + seconds);
-        	}
-            
+            $('#countDown').text(seconds);
             if (seconds == 0) {
                 clearInterval(countDown);
 				$('#options').empty();
