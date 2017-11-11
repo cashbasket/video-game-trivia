@@ -126,14 +126,14 @@ var questions = [
 		]
 	},
 	{
-		questionText: 'The composer for the soundtrack of the video game "Quake" is also the mastermind behind what famous band?',
+		questionText: 'The composer for the soundtrack of the video game "Quake" is also the mastermind behind what highly influential  band?',
 		questionImage: 'nine-inch-nails.jpg',
 		options: [{ 
 				answerText: 'Marilyn Manson',
 				isCorrect: false
 			},
 			{
-				answerText: 'Filter',
+				answerText: 'Throbbing Gristle',
 				isCorrect: false
 			},
 			{
@@ -147,7 +147,7 @@ var questions = [
 		]
 	},
 	{
-		questionText: 'Which Nintendo system was released in 1991?',
+		questionText: 'Which Nintendo system was released in the United States in 1991?',
 		questionImage: 'snes.jpg',
 		options: [{ 
 				answerText: 'Nintendo Entertainment System',
