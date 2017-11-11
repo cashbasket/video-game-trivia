@@ -217,8 +217,7 @@ var game = {
 
 	init: function() {
 		this.remainingQuestions = questions.slice(0);
-		this.getAndDisplayQuestion();
-		$('#endDisplay').hide();
+		$('#questionDisplay, #resultDisplay, #endDisplay').hide();
 	},
 	reset: function() {
 		this.remainingQuestions = questions.slice(0);
@@ -228,17 +227,17 @@ var game = {
 		this.isGameOver = false;
 		$('#endDisplay').hide();
 		$('#options').empty();
-		this.getAndDisplayQuestion();
+		$('#introDisplay').show();
 	},
 	getAndDisplayQuestion: function() {
-		$('#resultDisplay').hide();
+		$('#introDisplay, #resultDisplay').hide();
 		$('#questionDisplay').show();
 
 		var randomQuestionIndex = getRandomInt(0, this.remainingQuestions.length - 1);
 		this.currentQuestion = this.remainingQuestions[randomQuestionIndex];
         this.remainingQuestions.splice(randomQuestionIndex, 1);
 
-        $('#questionText').text(this.currentQuestion.questionText);
+        $('#questionText').html('<h2>' + this.currentQuestion.questionText + '</h2>');
 
         // all this crap does is randomize the order of the answers, and then display them
         var optionsLeft = this.currentQuestion.options.slice(0);
@@ -282,12 +281,12 @@ var game = {
 		//clear the question timer!
 		clearInterval(this.qCountDown);
 
-		if(answerIndex > 0 && this.currentQuestion.options[answerIndex].isCorrect) {
+		if(answerIndex >= 0 && this.currentQuestion.options[answerIndex].isCorrect) {
 			this.correctAnswers++;
 			correct = true;
 		}
 		else {
-			if (answerIndex > 0) {
+			if (answerIndex >= 0) {
 				this.incorrectAnswers++;
 			}
 			else {
@@ -342,6 +341,9 @@ var game = {
 
 $(document).ready(function() {
 	game.init();
+	$('body').on('click', 'button#startButton', function() {
+		game.getAndDisplayQuestion();
+	});
 	$('body').on('click', '.answer', function() {
 		game.processAnswer($('#question').attr('id'), $(this).attr('data-id'));
 	});
