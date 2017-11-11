@@ -1,6 +1,7 @@
 var questions = [
 	{
 		questionText: 'What is the name of the humans\' homeworld in World of Warcraft?',
+		questionImage: 'azeroth.jpg',
 		options: [{ 
 				answerText: 'Azeroth',
 				isCorrect: true
@@ -21,6 +22,7 @@ var questions = [
 	},
 	{
 		questionText: 'In the video game "Contra," how many lives does the infamous "Konami Code" give you?',
+		questionImage: 'contra.jpg',
 		options: [{ 
 				answerText: '10',
 				isCorrect: false
@@ -41,6 +43,7 @@ var questions = [
 	},
 	{
 		questionText: 'Which Mario game was the first to feature the character Yoshi?',
+		questionImage: 'yoshi.jpg',
 		options: [{ 
 				answerText: 'Super Mario World',
 				isCorrect: true
@@ -61,6 +64,7 @@ var questions = [
 	},
 	{
 		questionText: 'What is the name of the main villain in the Legend of Zelda series?',
+		questionImage: 'ganon.png',
 		options: [{ 
 				answerText: 'Ganon',
 				isCorrect: true
@@ -81,6 +85,7 @@ var questions = [
 	},
 	{
 		questionText: 'In the Metroid series, what is the name of the player character?',
+		questionImage: 'samus.jpg',
 		options: [{ 
 				answerText: 'Toad',
 				isCorrect: false
@@ -101,6 +106,7 @@ var questions = [
 	},
 	{
 		questionText: 'What was the name of the end boss in the video game "Punch-Out" AFTER Mike Tyson was removed from the game?',
+		questionImage: 'mr-dream.jpg',
 		options: [{ 
 				answerText: 'Soda Popinski',
 				isCorrect: false
@@ -121,6 +127,7 @@ var questions = [
 	},
 	{
 		questionText: 'The composer for the soundtrack of the video game "Quake" is also the mastermind behind what famous band?',
+		questionImage: 'nine-inch-nails.jpg',
 		options: [{ 
 				answerText: 'Marilyn Manson',
 				isCorrect: false
@@ -141,6 +148,7 @@ var questions = [
 	},
 	{
 		questionText: 'Which Nintendo system was released in 1991?',
+		questionImage: 'snes.jpg',
 		options: [{ 
 				answerText: 'Nintendo Entertainment System',
 				isCorrect: false
@@ -161,6 +169,7 @@ var questions = [
 	},
 	{
 		questionText: 'Which video game featured voice work by legendary Faith No More vocalist Mike Patton?',
+		questionImage: 'the-darkness.jpg',
 		options: [{ 
 				answerText: 'Resident Evil 5',
 				isCorrect: false
@@ -181,6 +190,7 @@ var questions = [
 	},
 	{
 		questionText: 'What was the code for infinite ammo in the video game "Doom"?',
+		questionImage: 'doom.jpg',
 		options: [{
 				answerText: 'I-D-K-F-A',
 				isCorrect: true
@@ -271,71 +281,87 @@ var game = {
             }
             seconds--;
         }, 1000);
-        console.log(this.qCountDown);
-
 	},
 	processAnswer: function(questionIndex, answerIndex) {
-		var correct;
-		var correctAnswerText;
+		var status;
+		var correctAnswerText = '';
 
-		//clear the question timer!
+		//clear the question timer and the image div!
 		clearInterval(this.qCountDown);
+		$('#answerImage').empty();
 
 		if(answerIndex >= 0 && this.currentQuestion.options[answerIndex].isCorrect) {
 			this.correctAnswers++;
-			correct = true;
+			status = 'correct';
 		}
 		else {
 			if (answerIndex >= 0) {
 				this.incorrectAnswers++;
+				status = 'incorrect';
 			}
 			else {
 				this.unanswered++;
+				status = 'unanswered';
 			}
-
-			for(var i = 0 ; i < this.currentQuestion.options.length - 1; i++) {
-				if(this.currentQuestion.options[i].isCorrect) {
-					correctAnswerText = this.currentQuestion.options[i].answerText;
-					break;
-				}
-			}
-			correct = false;
 		}
 
-		if(this.remainingQuestions.length > 0) {
-			//TO-DO: show results for question
-			$('#questionDisplay').hide();
-			$('#resultDisplay').show();
+		for(var i = 0 ; i < this.currentQuestion.options.length; i++) {
+			if(this.currentQuestion.options[i].isCorrect) {
+				correctAnswerText = this.currentQuestion.options[i].answerText;
+				break;
+			}
+		}
 
-			if(correct) {
-				$('#resultText').text('You got it right!');
-			}
-			else {
-				$('#resultText').text('Sorry, the correct answer was "' + correctAnswerText + '."');
-			}
-			var seconds = 7;  
-			$('#countDown').text(seconds);         
-            seconds--;
-            var countDown = setInterval(function() {
-                $('#countDown').text(seconds);
-                console.log(seconds);
-                if (seconds == 0) {
-                    clearInterval(countDown);
-                   $('#options').empty();
-					game.getAndDisplayQuestion();	
-                }
-                seconds--;
-            }, 1000);
+		console.log(correctAnswerText);
+
+		$('#questionDisplay').hide();
+		$('#resultDisplay').show();
+
+		if(status === 'correct') {
+			$('#resultText').text('You got it right! The correct answer was "' + correctAnswerText + '."');
+		}
+		else if (status === 'incorrect') {
+			$('#resultText').text('Sorry, the correct answer was "' + correctAnswerText + '."');
 		}
 		else {
-			this.isGameOver = true;
-			$('#questionDisplay').hide();
-			$('#endDisplay').show();
-			$('#endText').text("The game is over!");
-			$('#correctTotal').text(this.correctAnswers);
-			$('#incorrectTotal').text(this.incorrectAnswers);
-			$('#unansweredTotal').text(this.unanswered);
+			$('#resultText').text('You ran out of time! The correct answer was "' + correctAnswerText + '."');
 		}
+		var img = $('<img />').attr('src', 'assets/images/' + this.currentQuestion.questionImage).attr('alt', 'Image of the correct answer').addClass('img-responsive');
+		$('#answerImage').append(img);
+
+		// one biiiiig setInterval
+		var seconds = 7;  
+		$('#countDown').text('Time until next question: ' + seconds);
+        seconds--;
+        var countDown = setInterval(function() {
+        	if(game.remainingQuestions.length > 0) {
+        		$('#countDown').text('Time until next question: ' + seconds);
+        	}
+        	else {
+        		$('#countDown').text('Time until results screen: ' + seconds);
+        	}
+            
+            if (seconds == 0) {
+                clearInterval(countDown);
+				$('#options').empty();
+
+                if(game.remainingQuestions.length > 0) {
+			  		game.getAndDisplayQuestion();
+				}
+				else {
+					game.isGameOver = true;
+					$('#questionDisplay, #resultDisplay').hide();
+					$('#endDisplay').show();
+					$('#endText').text("The game is over!");
+					$('#correctTotal').text(game.correctAnswers);
+					$('#incorrectTotal').text(game.incorrectAnswers);
+					$('#unansweredTotal').text(game.unanswered);
+				}	
+            }
+            else {
+            	seconds--;
+            }
+        }, 1000);
 	}
 };
 
