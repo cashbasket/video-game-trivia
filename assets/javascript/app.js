@@ -315,13 +315,13 @@ var game = {
 		$('#resultDisplay').removeClass('hidden');
 
 		if(status === 'correct') {
-			$('#resultTextIntro').text('You got it right! ');
+			$('#resultTextIntro').text('You got it right! ').removeClass('red').addClass('green');
 		}
 		else if (status === 'incorrect') {
-			$('#resultTextIntro').text('Sorry, you got it wrong. ');
+			$('#resultTextIntro').text('Sorry, you got it wrong. ').removeClass('green').addClass('red');
 		}
 		else {
-			$('#resultTextIntro').text('You ran out of time! ');
+			$('#resultTextIntro').text('You ran out of time! ').removeClass('green').addClass('red');
 		}
 		$('#resultText').text('The correct answer is "' + correctAnswerText + '."');
 
