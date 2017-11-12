@@ -133,7 +133,7 @@ var questions = [
 				isCorrect: false
 			},
 			{
-				answerText: 'Throbbing Gristle',
+				answerText: 'Skinny Puppy',
 				isCorrect: false
 			},
 			{
@@ -311,8 +311,6 @@ var game = {
 				break;
 			}
 		}
-
-		console.log(correctAnswerText);
 
 		$('#questionDisplay').hide();
 		$('#resultDisplay').show();
