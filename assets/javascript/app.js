@@ -332,12 +332,12 @@ var game = {
 		$('#answerImage').append(img);
 
 		// one biiiiig setInterval
-		var seconds = 7;  
+		var seconds = 6;  
 		if(game.remainingQuestions.length > 0) {
-    		$('#countDownIntro').text('Time until next question: ');
+    		$('#countDownIntro').text('Next question in: ');
     	}
     	else {
-    		$('#countDownIntro').text('Time until results screen: ');
+    		$('#countDownIntro').text('Results in: ');
     	}
     	$('#countDown').text(seconds);
         seconds--;

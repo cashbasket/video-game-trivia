@@ -55,9 +55,23 @@ button {
 	
 }
 
-.btn.btn-success {
+.btn.btn-default,
+.btn.btn-default:hover,
+.btn.btn-default:active,
+.btn.btn-default:focus {
+	border: 2px solid #fff;
+	border-radius: 5px;
+	color: #fff;
 	font-size: 24px;
-	border: 2px solid #000;
+}
+
+.btn.btn-default {
+	background-color: #000;
+}
+.btn.btn-default:hover,
+.btn.btn-default:active,
+.btn.btn-default:focus {
+	background-color: #666;
 }
 
 .question {
@@ -92,6 +106,10 @@ button {
 .count-down {
 	font-family: 'Press Start 2P', cursive;
 	margin-top: 30px;
+}
+
+.red {
+	color: #f00;
 }
 
 footer {
