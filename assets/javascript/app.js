@@ -1,5 +1,4 @@
-var questions = [
-	{
+var questions = [{
 		questionText: 'What is the name of the humans\' homeworld in World of Warcraft?',
 		questionImage: 'https://media.giphy.com/media/j3ROQN30j1Xnq/giphy.gif',
 		options: [{ 
