@@ -249,14 +249,13 @@ var game = {
         $('#questionText').html('<h2>' + this.currentQuestion.questionText + '</h2>');
 
         // all this crap does is randomize the order of the answers, and then display them
-        var optionsLeft = this.currentQuestion.options.slice(0);
         var optionsUsed = [];
-        for(var i = 0; i < optionsLeft.length; i++) {
-        	var randomOptionIndex = getRandomInt(0, optionsLeft.length - 1);      	
+        for(var i = 0; i < this.currentQuestion.options.length; i++) {
+        	var randomOptionIndex = getRandomInt(0, this.currentQuestion.options.length - 1);      	
 
         	while(true) {
 	        	if(optionsUsed.includes(randomOptionIndex)) {
-	        		randomOptionIndex = getRandomInt(0, optionsLeft.length - 1);
+	        		randomOptionIndex = getRandomInt(0, this.currentQuestion.options.length - 1);
 	        	}
 	        	else {
 	        		break;
@@ -267,6 +266,7 @@ var game = {
        		var option = $('<a>').attr('data-id', randomOptionIndex).addClass('answer').text(this.currentQuestion.options[randomOptionIndex].answerText);
        		$('#options').append(optionDiv.append(option));
         }
+
         var seconds = 30;  
 		$('#qCountDown').text(seconds);         
         seconds--;
@@ -276,12 +276,12 @@ var game = {
             if (seconds == 0) {
                 clearInterval(this.qCountDown);
                $('#options').empty();
-				game.processAnswer(randomQuestionIndex, -1);	
+				game.processAnswer(-1);	
             }
             seconds--;
         }, 1000);
 	},
-	processAnswer: function(questionIndex, answerIndex) {
+	processAnswer: function(answerIndex) {
 		var status;
 		var correctAnswerText = '';
 
@@ -396,7 +396,7 @@ $(document).ready(function() {
 		game.getAndDisplayQuestion();
 	});
 	$('body').on('click', '.answer', function() {
-		game.processAnswer($('#question').attr('id'), $(this).attr('data-id'));
+		game.processAnswer($(this).attr('data-id'));
 	});
 	$('body').on('click', 'button#resetButton', function() {
 		game.reset();
