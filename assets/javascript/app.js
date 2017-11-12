@@ -6,7 +6,7 @@ var questions = [{
 				isCorrect: true
 			},
 			{
-				answerText: 'Middle Earth',
+				answerText: 'Northrend',
 				isCorrect: false
 			},
 			{
@@ -14,7 +14,7 @@ var questions = [{
 				isCorrect: false
 			},
 			{
-				answerText: 'Oakland',
+				answerText: 'Draenor',
 				isCorrect: false
 			}
 		]
