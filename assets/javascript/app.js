@@ -227,7 +227,6 @@ var game = {
 
 	init: function() {
 		this.remainingQuestions = questions.slice(0);
-		$('#questionDisplay, #resultDisplay, #endDisplay').hide();
 	},
 	reset: function() {
 		this.remainingQuestions = questions.slice(0);
@@ -235,13 +234,13 @@ var game = {
 		this.incorrectAnswers = 0;
 		this.unanswered = 0;
 		this.isGameOver = false;
-		$('#endDisplay').hide();
+		$('#endDisplay').addClass('hidden');
 		$('#options').empty();
-		$('#introDisplay').show();
+		$('#introDisplay').removeClass('hidden');
 	},
 	getAndDisplayQuestion: function() {
-		$('#introDisplay, #resultDisplay').hide();
-		$('#questionDisplay').show();
+		$('#introDisplay, #resultDisplay').addClass('hidden');
+		$('#questionDisplay').removeClass('hidden');
 
 		var randomQuestionIndex = getRandomInt(0, this.remainingQuestions.length - 1);
 		this.currentQuestion = this.remainingQuestions[randomQuestionIndex];
@@ -312,8 +311,8 @@ var game = {
 			}
 		}
 
-		$('#questionDisplay').hide();
-		$('#resultDisplay').show();
+		$('#questionDisplay').addClass('hidden');
+		$('#resultDisplay').removeClass('hidden');
 
 		if(status === 'correct') {
 			$('#resultTextIntro').text('You got it right! ');
@@ -350,8 +349,8 @@ var game = {
 				}
 				else {
 					game.isGameOver = true;
-					$('#questionDisplay, #resultDisplay').hide();
-					$('#endDisplay').show();
+					$('#questionDisplay, #resultDisplay').addClass('hidden');
+					$('#endDisplay').removeClass('hidden');
 					$('#correctTotal').text(game.correctAnswers);
 					$('#incorrectTotal').text(game.incorrectAnswers);
 					$('#unansweredTotal').text(game.unanswered);
