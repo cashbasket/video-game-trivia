@@ -43,7 +43,6 @@ h1 {
 }
 
 h2 {
-	font-family: 'Press Start 2P', cursive;
 	font-size: 1.5em;
 	font-weight: bold;
 	margin-bottom: 30px;
@@ -83,7 +82,6 @@ button {
 }
 
 .answer {
-	font-family: 'Press Start 2P', cursive;
 	cursor: pointer;
 	text-decoration: none;
 	font-size: 18px;
@@ -106,7 +104,6 @@ button {
 }
 
 .count-down {
-	font-family: 'Press Start 2P', cursive;
 	margin-top: 30px;
 }
 
@@ -120,8 +117,8 @@ button {
 
 footer {
 	background-color: #000;
-	color: #fff;
-	border-top: 1px solid #fff;
+	color: #fffdf4;
+	border-top: 1px solid #fffdf4;
 	padding: 10px;
 	font-family: 'Oswald', sans-serif;
 }
@@ -139,7 +136,7 @@ footer {
 }
 
 .social li a {
-    color: #fff;
+    color: #fffdf4;
 }
 
 .social li a:hover {
