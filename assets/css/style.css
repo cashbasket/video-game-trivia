@@ -98,7 +98,8 @@ button {
 }
 
 #answerImage img,
-#gameOverImage {
+#gameOverImage,
+#startImage {
 	margin: 15px auto;
 	max-height: 300px;
 }
