@@ -104,7 +104,7 @@ var questions = [{
 		]
 	},
 	{
-		questionText: 'What was the name of the enemy you face immediately BEFORE facing Mike Tyson?',
+		questionText: 'In "Mike Tyson\'s Punch-Out!!" what was the name of the enemy you face immediately BEFORE facing Mike Tyson?',
 		questionImage: 'https://media.giphy.com/media/nbkj9HIm3m6Yw/giphy.gif',
 		options: [{ 
 				answerText: 'Soda Popinski',
