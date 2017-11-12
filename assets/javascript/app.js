@@ -221,10 +221,12 @@ var game = {
 	correctAnswers: 0,
 	incorrectAnswers: 0,
 	unanswered: 0,
-	isGameOver: false,
 	qCountDown: 0,
-
 	init: function() {
+		//create audio element
+		var audio = document.createElement('audio');
+		audio.id = 'audio';
+		$('body').prepend(audio);
 		this.remainingQuestions = questions.slice(0);
 	},
 	reset: function() {
@@ -232,7 +234,6 @@ var game = {
 		this.correctAnswers = 0;
 		this.incorrectAnswers = 0;
 		this.unanswered = 0;
-		this.isGameOver = false;
 		$('#endDisplay').addClass('hidden');
 		$('#options').empty();
 		$('#introDisplay').removeClass('hidden');
@@ -347,7 +348,6 @@ var game = {
 			  		game.getAndDisplayQuestion();
 				}
 				else {
-					game.isGameOver = true;
 					$('#questionDisplay, #resultDisplay').addClass('hidden');
 					$('#endDisplay').removeClass('hidden');
 					$('#correctTotal').text(game.correctAnswers);
@@ -356,12 +356,15 @@ var game = {
 
 					if(game.correctAnswers > 7) {
 						$('#endText').text('You clearly know your video games. Nice work!');
+						game.playSound('cheer');
 					}
 					else if (game.correctAnswers <= 7 && game.correctAnswers >=5) {
 						$('#endText').text('Meh. You did an adequate job, I\'d say.');
+						game.playSound('meh');
 					}
 					else {
 						$('#endText').text('Yeesh... you\'re pretty bad at this.');
+						game.playSound('boo');
 					}
 				}	
             }
@@ -369,6 +372,21 @@ var game = {
             	seconds--;
             }
         }, 1000);
+	},
+	playSound: function(type) {
+		var audio = document.getElementById('audio');
+		switch (type) {
+			case 'cheer':
+				audio.src = 'assets/mp3/cheering.mp3';
+				break;
+			case 'meh':
+				audio.src = 'assets/mp3/medium-applause.mp3';
+				break;
+			case 'boo':
+				audio.src = 'assets/mp3/boo.mp3';
+				break;
+		}
+		audio.play();
 	}
 };
 
