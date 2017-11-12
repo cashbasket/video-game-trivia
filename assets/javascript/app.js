@@ -358,10 +358,10 @@ var game = {
 						$('#endText').text('You clearly know your video games. Nice work!');
 					}
 					else if (game.correctAnswers <= 7 && game.correctAnswers >=5) {
-						$('#endText').text('You did... average to above-average, I\'d say.');
+						$('#endText').text('Meh. You did an adequate job, I\'d say.');
 					}
 					else {
-						$('#endText').text('You\'re pretty bad at this.');
+						$('#endText').text('Yeesh... you\'re pretty bad at this.');
 					}
 				}	
             }
