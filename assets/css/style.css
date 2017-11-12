@@ -19,7 +19,7 @@ body {
 
 #contents {
 	margin: 20px 0;
-	padding: 50px;
+	padding: 20px 10%;
 	background: rgba(255, 255, 255, 0.8);
 	display: flex;
 	justify-content: center;
@@ -35,8 +35,8 @@ body {
 }
 
 h1 {
-	font-family: 'Press Start 2P', cursive;
-	font-size: 2em;
+	font-family: 'Oswald', sans-serif;
+	font-size: 4em;
 	font-weight: bold;
 	margin-bottom: 30px;
 	color: #f00;
@@ -89,6 +89,7 @@ button {
 	font-size: 18px;
 	color: #f00;
 	padding: 10px;
+	line-height: 1.5;
 }
 
 .answer:hover {
@@ -147,4 +148,36 @@ footer {
 
 .social li:last-of-type {
     margin-right: 0;
+}
+
+@media screen and (max-width: 992px) {
+    #contents p {
+		font-size: 14px;
+	}
+
+	.answer {
+		padding: 5px;
+	}
+	
+	h2 {
+		font-size: 1em;
+	}
+
+    footer {
+        text-align: center;
+        line-height: 1.5;
+    }
+    .social {
+        list-style: none;
+        position: relative;
+        float: left;
+        display: block;
+        left: 50%;
+    }
+    .social li {
+        position: relative;
+        float: left;
+        display: block;
+        right: 50%;
+    }
 }
