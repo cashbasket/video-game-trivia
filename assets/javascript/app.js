@@ -1,6 +1,6 @@
 var questions = [{
 		questionText: 'What is the name of the humans\' homeworld in World of Warcraft?',
-		questionImage: 'https://media.giphy.com/media/j3ROQN30j1Xnq/giphy.gif',
+		questionImage: 'assets/images/azeroth.gif',
 		options: [{ 
 				answerText: 'Azeroth',
 				isCorrect: true
@@ -21,7 +21,7 @@ var questions = [{
 	},
 	{
 		questionText: 'In the video game "Contra," how many lives does the infamous "Konami Code" give you?',
-		questionImage: 'https://media.giphy.com/media/DpXqHdILXRRDi/giphy.gif',
+		questionImage: 'assets/images/contra.gif',
 		options: [{ 
 				answerText: '10',
 				isCorrect: false
@@ -42,7 +42,7 @@ var questions = [{
 	},
 	{
 		questionText: 'Which Mario game was the first to feature the character Yoshi?',
-		questionImage: 'https://media.giphy.com/media/1ORxrBqFw1fVu/giphy.gif',
+		questionImage: 'assets/images/yoshi.gif',
 		options: [{ 
 				answerText: 'Super Mario World',
 				isCorrect: true
@@ -63,7 +63,7 @@ var questions = [{
 	},
 	{
 		questionText: 'What is the name of the main villain in the Legend of Zelda series?',
-		questionImage: 'https://media.giphy.com/media/17tG1Mff3fAMU/giphy.gif',
+		questionImage: 'assets/images/ganon.gif',
 		options: [{ 
 				answerText: 'Ganon',
 				isCorrect: true
@@ -84,7 +84,7 @@ var questions = [{
 	},
 	{
 		questionText: 'In the Metroid series, what is the name of the player character?',
-		questionImage: 'https://media.giphy.com/media/3nYlRxNj3iAms/giphy.gif',
+		questionImage: 'assets/images/samus.gif',
 		options: [{ 
 				answerText: 'Cloud Strife',
 				isCorrect: false
@@ -105,7 +105,7 @@ var questions = [{
 	},
 	{
 		questionText: 'In "Mike Tyson\'s Punch-Out!!" what was the name of the enemy you face immediately BEFORE facing Mike Tyson?',
-		questionImage: 'https://media.giphy.com/media/nbkj9HIm3m6Yw/giphy.gif',
+		questionImage: 'assets/images/macho-man.gif',
 		options: [{ 
 				answerText: 'Soda Popinski',
 				isCorrect: false
@@ -126,7 +126,7 @@ var questions = [{
 	},
 	{
 		questionText: 'The composer for the soundtrack of the video game "Quake" is also the mastermind behind what highly influential  band?',
-		questionImage: 'https://media.giphy.com/media/Q25XQvcPhghRS/giphy.gif',
+		questionImage: 'assets/images/nin.gif',
 		options: [{ 
 				answerText: 'Marilyn Manson',
 				isCorrect: false
@@ -147,7 +147,7 @@ var questions = [{
 	},
 	{
 		questionText: 'Which Nintendo system was released in the United States in 1991?',
-		questionImage: 'https://media.giphy.com/media/vXFHBHbf2jO9y/giphy.gif',
+		questionImage: 'assets/images/snes.gif',
 		options: [{ 
 				answerText: 'Nintendo Entertainment System',
 				isCorrect: false
@@ -189,7 +189,7 @@ var questions = [{
 	},
 	{
 		questionText: 'What was the code for infinite ammo in the video game "Doom"?',
-		questionImage: 'https://media.giphy.com/media/hKyWAN3gQyCsM/giphy.gif',
+		questionImage: 'assets/images/doom.gif',
 		options: [{
 				answerText: 'I-D-K-F-A',
 				isCorrect: true
@@ -361,17 +361,17 @@ var game = {
 
 					var img = $('<img />').addClass('img-responsive');
 					if(game.correctAnswers > 7) {
-						img.attr('src', 'https://media.giphy.com/media/oGbAHH4YELIpW/giphy.gif').attr('alt', 'A winner is you!');
+						img.attr('src', 'assets/images/a-winner-is-you.gif').attr('alt', 'A winner is you!');
 						$('#endText').text('You clearly know your video games. Nice work!');
 						game.playSound('cheer');
 					}
 					else if (game.correctAnswers <= 7 && game.correctAnswers >=5) {
-						img.attr('src', 'https://media.giphy.com/media/7F5CfuRdFZF4s/giphy.gif').attr('alt', 'Image of the Noid');
+						img.attr('src', 'assets/images/noid.gif').attr('alt', 'Image of the Noid');
 						$('#endText').text('Meh. You did an adequate job, I\'d say.');
 						game.playSound('meh');
 					}
 					else {
-						img.attr('src','https://media.giphy.com/media/BQKzKCRqqoow0/giphy.gif').attr('alt', 'Image of laughing dog');
+						img.attr('src','assets/images/duck-hunt.gif').attr('alt', 'Image of laughing dog');
 						$('#endText').text('Yeesh... you\'re pretty bad at this.');
 						game.playSound('boo');
 					}
