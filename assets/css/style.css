@@ -27,6 +27,7 @@ body {
 	align-items: center;
 	min-width: 100%;
 	border: 2px solid #000;
+	overflow: hidden;
 }
 
 #contents p {
@@ -39,10 +40,17 @@ h1 {
 	font-family: 'Oswald', sans-serif;
 	font-size: 4em;
 	font-weight: bold;
-	margin-bottom: 30px;
+	margin-bottom: 50px;
 	color: #dd1d1a;
 	background-color: #000;
 	padding: 20px;
+}
+
+.rotate {
+	-webkit-transform: rotate(-10deg);
+	-moz-transform: rotate(-10deg);
+	-ms-transform: rotate(-10deg);
+	-o-transform: rotate(-10deg);
 }
 
 h2 {
@@ -79,7 +87,7 @@ button {
 	background-image: -ms-linear-gradient(top, #dd1d1a, #921513);
 	background-image: -o-linear-gradient(top, #dd1d1a, #921513);
 	background-image: linear-gradient(to bottom, #dd1d1a, #921513);
-		border: solid #921513 2px;
+	border: solid #921513 2px;
 }
 .btn.btn-default:hover,
 .btn.btn-default:active,
