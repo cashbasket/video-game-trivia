@@ -237,13 +237,14 @@ var game = {
 		this.incorrectAnswers = 0;
 		this.unanswered = 0;
 		this.questionNum = 1;
-		$('h1').show().text('Old Video Game Trivia').removeClass('rotate ivory bg-black').addClass('red');
-		$('#endDisplay').addClass('hidden');
+		$('h1').show();
+		$('#endDisplay, h2#questionHeader').addClass('hidden');
 		$('#options, #endImage').empty();
 		$('#introDisplay').removeClass('hidden');
 	},
 	getAndDisplayQuestion: function() {
-		$('h1').text('Question #' + this.questionNum).addClass('rotate ivory bg-black').show();
+		$('h1').hide();
+		$('h2').removeClass('hidden').text('Question #' + this.questionNum).addClass('ivory').show();
 		$('#introDisplay, #resultDisplay').addClass('hidden');
 		$('#questionDisplay').removeClass('hidden');
 
@@ -251,7 +252,7 @@ var game = {
 		this.currentQuestion = this.remainingQuestions[randomQuestionIndex];
         this.remainingQuestions.splice(randomQuestionIndex, 1);
 
-        $('#questionText').html('<h2>' + this.currentQuestion.questionText + '</h2>');
+        $('#questionText').html('<h3>' + this.currentQuestion.questionText + '</h3>');
 
         // all this crap does is randomize the order of the answers, and then display them
         var optionsUsed = [];
@@ -278,6 +279,9 @@ var game = {
 
         this.qCountDown = setInterval(function() {
             $('#qCountDown').text(seconds);
+            if (seconds <= 10) {
+            	$('#qCountDown').addClass('red');
+            }
             if (seconds == 0) {
                 clearInterval(this.qCountDown);
                $('#options').empty();
@@ -288,6 +292,8 @@ var game = {
 	},
 	processAnswer: function(answerIndex) {
 		$('h1').hide();
+		$('h2').addClass('hidden');
+		$('#qCountDown').removeClass('red');
 		var status;
 		var correctAnswerText = '';
 

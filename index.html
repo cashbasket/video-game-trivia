@@ -15,7 +15,8 @@
 <body class="site">
 	<div class="container site-content">
 		<div id="contents">
-			<h1>Old Video Game Trivia</h1>	
+			<h1>Old Video Game Trivia</h1>
+			<h2 class="hidden"></h2>
 			<div id="introDisplay">
 				<img id="startImage" src="assets/images/nes.gif" class="img-responsive" alt="Image of Nintendo Entertainment System" /><br>
 				<p>Think you know stuff about relatively old to legitimately old video games? Hmm... interesting theory. Let's find out!</p>
@@ -23,7 +24,7 @@
 			</div>
 			<div id="questionDisplay" class="hidden">
 				<div class="question col-md-12">
-					<span id="questionText"></span>
+					<p id="questionText"></p>
 				</div>
 				<div id="options"></div>
 				<div class="count-down">
@@ -31,13 +32,13 @@
 				</div>
 			</div>
 			<div id="resultDisplay" class="hidden">
-				<h2><span id="resultTextIntro"></span><span id="resultText"></span></h2>
+				<h3><span id="resultTextIntro"></span><span id="resultText"></span></h3>
 				<div id="answerImage"></div>
 				<p><span id="countDownIntro"></span> <span id="countDown"></span></p>
 			</div>
 			<div id="endDisplay" class="hidden">				
 				<div id="endImage"></div>
-				<h2 class="red">That's it! I'm out of questions.</h2>
+				<h3 class="red">That's it! I'm out of questions.</h3>
 				<p><span id="endText"></span></p>
 				<p>Correct answers: <span id="correctTotal"></span><br>
 				Incorrect answers: <span id="incorrectTotal"></span><br>
