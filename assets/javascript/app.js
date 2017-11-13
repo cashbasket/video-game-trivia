@@ -222,6 +222,7 @@ var game = {
 	incorrectAnswers: 0,
 	unanswered: 0,
 	qCountDown: 0,
+	questionNum: 1,
 	init: function() {
 		//create audio element
 		var audio = document.createElement('audio');
@@ -234,11 +235,14 @@ var game = {
 		this.correctAnswers = 0;
 		this.incorrectAnswers = 0;
 		this.unanswered = 0;
+		this.questionNum = 1;
+		$('h1').show().text('Old Video Game Trivia');
 		$('#endDisplay').addClass('hidden');
 		$('#options, #endImage').empty();
 		$('#introDisplay').removeClass('hidden');
 	},
 	getAndDisplayQuestion: function() {
+		$('h1').text('Question #' + this.questionNum).show();
 		$('#introDisplay, #resultDisplay').addClass('hidden');
 		$('#questionDisplay').removeClass('hidden');
 
@@ -282,6 +286,7 @@ var game = {
         }, 1000);
 	},
 	processAnswer: function(answerIndex) {
+		$('h1').hide();
 		var status;
 		var correctAnswerText = '';
 
@@ -376,6 +381,7 @@ var game = {
             	seconds--;
             }
         }, 1000);
+        this.questionNum++;
 	},
 	playSound: function(type) {
 		var audio = document.getElementById('audio');
