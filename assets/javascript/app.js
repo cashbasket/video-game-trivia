@@ -229,6 +229,7 @@ var game = {
 		audio.id = 'audio';
 		$('body').prepend(audio);
 		this.remainingQuestions = questions.slice(0);
+		$('h1').addClass('red');
 	},
 	reset: function() {
 		this.remainingQuestions = questions.slice(0);
@@ -236,13 +237,13 @@ var game = {
 		this.incorrectAnswers = 0;
 		this.unanswered = 0;
 		this.questionNum = 1;
-		$('h1').show().text('Old Video Game Trivia');
+		$('h1').show().text('Old Video Game Trivia').removeClass('rotate ivory').addClass('red');
 		$('#endDisplay').addClass('hidden');
 		$('#options, #endImage').empty();
 		$('#introDisplay').removeClass('hidden');
 	},
 	getAndDisplayQuestion: function() {
-		$('h1').text('Question #' + this.questionNum).show();
+		$('h1').text('Question #' + this.questionNum).addClass('rotate ivory').show();
 		$('#introDisplay, #resultDisplay').addClass('hidden');
 		$('#questionDisplay').removeClass('hidden');
 
