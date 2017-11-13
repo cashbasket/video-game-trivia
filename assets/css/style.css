@@ -40,7 +40,7 @@ h1 {
 	font-size: 4em;
 	font-weight: bold;
 	margin-bottom: 30px;
-	color: #f00;
+	color: #dd1d1a;
 }
 
 h2 {
@@ -86,14 +86,14 @@ button {
 	cursor: pointer;
 	text-decoration: none;
 	font-size: 18px;
-	color: #f00;
+	color: #dd1d1a;
 	padding: 10px;
 	line-height: 1.5;
 }
 
 .answer:hover {
 	text-decoration: none;
-	background-color: #f00;
+	background-color: #dd1d1a;
 	color: #fff;
 }
 
@@ -109,7 +109,7 @@ button {
 }
 
 .red {
-	color: #f00;
+	color: #dd1d1a;
 }
 
 .green {
