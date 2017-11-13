@@ -229,7 +229,6 @@ var game = {
 		audio.id = 'audio';
 		$('body').prepend(audio);
 		this.remainingQuestions = questions.slice(0);
-		$('h1').addClass('red');
 	},
 	reset: function() {
 		this.remainingQuestions = questions.slice(0);
