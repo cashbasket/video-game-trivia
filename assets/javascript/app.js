@@ -238,6 +238,8 @@ var game = {
 		audio.id = 'audio';
 		$('body').prepend(audio);
 		this.remainingQuestions = questions.slice(0);
+		var star = $('<img />').attr('src','assets/images/star.gif').attr('alt','Image of a rotating star').addClass('star');
+		$(star).clone().appendTo('h1').clone().prependTo('h1');
 	},
 	reset: function() {
 		this.remainingQuestions = questions.slice(0);
@@ -390,7 +392,8 @@ var game = {
 						$('#endText').text('Yeesh... you\'re pretty bad at this.');
 						game.playSound('boo');
 					}
-					$('#endImage').append(img);				}	
+					$('#endImage').append(img);				
+				}	
             }
             else {
             	seconds--;
@@ -415,7 +418,8 @@ var game = {
 	}
 };
 
-preloadImages('assets/images/a-winner-is-you.gif',
+preloadImages('assets/images/star.gif',
+				'assets/images/a-winner-is-you.gif',
 				'assets/images/azeroth.gif',
 				'assets/images/contra.gif',
 				'assets/images/doom.gif',
