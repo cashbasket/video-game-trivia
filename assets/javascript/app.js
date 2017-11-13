@@ -62,7 +62,7 @@ var questions = [{
 		]
 	},
 	{
-		questionText: 'What is the name of the main villain in the Legend of Zelda series?',
+		questionText: 'What is the name of the main villain in the "Legend of Zelda" series of games?',
 		questionImage: 'assets/images/ganon.gif',
 		options: [{ 
 				answerText: 'Ganon',
@@ -83,7 +83,7 @@ var questions = [{
 		]
 	},
 	{
-		questionText: 'In the Metroid series, what is the name of the player character?',
+		questionText: 'In the "Metroid" series, what is the name of the character you play as?',
 		questionImage: 'assets/images/samus.gif',
 		options: [{ 
 				answerText: 'Cloud Strife',
@@ -98,13 +98,13 @@ var questions = [{
 				isCorrect: true
 			},
 			{
-				answerText: 'Bela Lugosi',
+				answerText: 'Ellen Ripley',
 				isCorrect: false
 			}
 		]
 	},
 	{
-		questionText: 'In "Mike Tyson\'s Punch-Out!!" what was the name of the enemy you face immediately BEFORE facing Mike Tyson?',
+		questionText: 'In "Mike Tyson\'s Punch-Out!!" what is the name of the enemy you face immediately BEFORE facing Mike Tyson?',
 		questionImage: 'assets/images/macho-man.gif',
 		options: [{ 
 				answerText: 'Soda Popinski',
