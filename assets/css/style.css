@@ -41,7 +41,6 @@ h1 {
 	font-size: 4em;
 	font-weight: bold;
 	margin-bottom: 50px;
-	background-color: #000;
 	padding: 20px;
 }
 
@@ -50,6 +49,10 @@ h1 {
 	-moz-transform: rotate(-10deg);
 	-ms-transform: rotate(-10deg);
 	-o-transform: rotate(-10deg);
+}
+
+.bg-black {
+	background-color: #000;
 }
 
 h2 {

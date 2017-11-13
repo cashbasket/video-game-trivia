@@ -237,13 +237,13 @@ var game = {
 		this.incorrectAnswers = 0;
 		this.unanswered = 0;
 		this.questionNum = 1;
-		$('h1').show().text('Old Video Game Trivia').removeClass('rotate ivory').addClass('red');
+		$('h1').show().text('Old Video Game Trivia').removeClass('rotate ivory bg-black').addClass('red');
 		$('#endDisplay').addClass('hidden');
 		$('#options, #endImage').empty();
 		$('#introDisplay').removeClass('hidden');
 	},
 	getAndDisplayQuestion: function() {
-		$('h1').text('Question #' + this.questionNum).addClass('rotate ivory').show();
+		$('h1').text('Question #' + this.questionNum).addClass('rotate ivory bg-black').show();
 		$('#introDisplay, #resultDisplay').addClass('hidden');
 		$('#questionDisplay').removeClass('hidden');
 
