@@ -16,70 +16,39 @@
 	<div class="container site-content">
 		<div id="contents">
 			<div id="introDisplay">
-				<div class="row">
-					<div class="col-md-12">
-						<h1>Old Video Game Trivia</h1>
-						<img id="startImage" src="https://media.giphy.com/media/O6g4yjGnaMB4Q/giphy.gif" class="img-responsive" alt="Image of Nintendo Entertainment System" /><br>
-						<p>Think you know stuff about relatively old to legitimately old video games? Hmm... interesting theory. Let's find out!</p>
-						<button id="startButton" class="btn btn-default btn-lg">Player 1 Start</button>
-					</div>
-				</div>
+				<h1>Old Video Game Trivia</h1>
+				<img id="startImage" src="https://media.giphy.com/media/O6g4yjGnaMB4Q/giphy.gif" class="img-responsive" alt="Image of Nintendo Entertainment System" /><br>
+				<p>Think you know stuff about relatively old to legitimately old video games? Hmm... interesting theory. Let's find out!</p>
+				<button id="startButton" class="btn btn-default btn-lg">Player 1 Start</button>
 			</div>
 			<div id="questionDisplay" class="hidden">
-				<div class="row">
-					<div class="question col-md-12">
-						<span id="questionText"></span>
-					</div>
+				<div class="question col-md-12">
+					<span id="questionText"></span>
 				</div>
-				<div class="row">
-					<div id="options" class="col-md-12">
+				<div id="options">
 
-					</div>
 				</div>
-				<div class="row">
-					<div class="count-down col-md-12">
-						<p>Time Remaining: <span id="qCountDown"></span></p>
-					</div>
+				<div class="count-down">
+					<p>Time Remaining: <span id="qCountDown"></span></p>
 				</div>
 			</div>
 			<div id="resultDisplay" class="hidden">
-				<div class="row">
-					<div class="result col-md-12">
-						<h2><span id="resultTextIntro"></span><span id="resultText"></span></h2>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<div id="answerImage"></div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="count-down col-md-12">
-						<p><span id="countDownIntro"></span>
-							<span id="countDown"></span></p>
-					</div>
-				</div>
+				<h2><span id="resultTextIntro"></span><span id="resultText"></span></h2>
+
+				<div id="answerImage"></div>
+
+				<p><span id="countDownIntro"></span> <span id="countDown"></span></p>
 			</div>
 			<div id="endDisplay" class="hidden">
-				<div class="row">
-					<div class="col-md-12">
-						<img  id="gameOverImage" src="https://media.giphy.com/media/hI2MhqmMPd2jm/giphy.gif" class="img-responsive" alt="Game Over image" />
-					</div>
-				</div>
-				<div class="row">
-					<div class="result col-md-12">
-						<h2 class="red">That's it! I'm out of questions.</h2>
-						<p><span id="endText"></span></p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<p>Correct answers: <span id="correctTotal"></span><br>
-						Incorrect answers: <span id="incorrectTotal"></span><br>
-						Unanswered: <span id="unansweredTotal"></span></p>
-						<button id="resetButton" class="btn btn-default btn-lg">Reset</button>
-					</div>
-				</div>
+				<img  id="gameOverImage" src="https://media.giphy.com/media/hI2MhqmMPd2jm/giphy.gif" class="img-responsive" alt="Game Over image" />
+
+				<h2 class="red">That's it! I'm out of questions.</h2>
+				<p><span id="endText"></span></p>
+
+				<p>Correct answers: <span id="correctTotal"></span><br>
+				Incorrect answers: <span id="incorrectTotal"></span><br>
+				Unanswered: <span id="unansweredTotal"></span></p>
+				<button id="resetButton" class="btn btn-default btn-lg">Reset</button>
 			</div>
 		</div>
 	</div>
