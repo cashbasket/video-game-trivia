@@ -235,7 +235,7 @@ var game = {
 		this.incorrectAnswers = 0;
 		this.unanswered = 0;
 		$('#endDisplay').addClass('hidden');
-		$('#options').empty();
+		$('#options, #endImage').empty();
 		$('#introDisplay').removeClass('hidden');
 	},
 	getAndDisplayQuestion: function() {
@@ -354,19 +354,23 @@ var game = {
 					$('#incorrectTotal').text(game.incorrectAnswers);
 					$('#unansweredTotal').text(game.unanswered);
 
+					var img = $('<img />').addClass('img-responsive');
 					if(game.correctAnswers > 7) {
+						img.attr('src', 'https://media.giphy.com/media/oGbAHH4YELIpW/giphy.gif').attr('alt', 'A winner is you!');
 						$('#endText').text('You clearly know your video games. Nice work!');
 						game.playSound('cheer');
 					}
 					else if (game.correctAnswers <= 7 && game.correctAnswers >=5) {
+						img.attr('src', 'https://media.giphy.com/media/7F5CfuRdFZF4s/giphy.gif').attr('alt', 'Image of the Noid');
 						$('#endText').text('Meh. You did an adequate job, I\'d say.');
 						game.playSound('meh');
 					}
 					else {
+						img.attr('src','https://media.giphy.com/media/BQKzKCRqqoow0/giphy.gif').attr('alt', 'Image of laughing dog');
 						$('#endText').text('Yeesh... you\'re pretty bad at this.');
 						game.playSound('boo');
 					}
-				}	
+					$('#endImage').append(img);				}	
             }
             else {
             	seconds--;
