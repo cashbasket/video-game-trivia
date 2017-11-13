@@ -215,6 +215,15 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+//image preloading stuff
+var myimages = [];
+function preloadImages(){
+	for (i = 0; i < preloadImages.arguments.length; i++){
+		myimages[i] = new Image();
+		myimages[i].src = preloadImages.arguments[i];
+	}
+}
+
 var game = {
 	remainingQuestions: [],
 	currentQuestion: {},
@@ -405,6 +414,21 @@ var game = {
 		audio.play();
 	}
 };
+
+preloadImages('assets/images/a-winner-is-you.gif',
+				'assets/images/azeroth.gif',
+				'assets/images/contra.gif',
+				'assets/images/doom.gif',
+				'assets/images/duck-hunt.gif',
+				'assets/images/ganon.gif',
+				'assets/images/macho-man.gif',
+				'assets/images/nes.gif',
+				'assets/images/nin.gif',
+				'assets/images/noid.gif',
+				'assets/images/samus.gif',
+				'assets/images/snes.gif',
+				'assets/images/the-darkness.jpg',
+				'assets/images/yoshi.gif');
 
 $(document).ready(function() {
 	game.init();
