@@ -77,7 +77,12 @@ button {
 .btn.btn-default,
 .btn.btn-default:hover,
 .btn.btn-default:active,
-.btn.btn-default:focus {
+.btn.btn-default:focus,
+.btn.btn-option,
+.btn.btn-option:hover,
+.btn.btn-option:active,
+.btn.btn-option:focus
+ {
 	-webkit-border-radius: 40px;
 	-moz-border-radius: 40px;
 	border-radius: 40px;
@@ -92,6 +97,30 @@ button {
 }
 
 .btn.btn-default {
+	background: #000;
+	background-image: -webkit-linear-gradient(top, #000, #666);
+	background-image: -moz-linear-gradient(top, #000, #666);
+	background-image: -ms-linear-gradient(top, #000, #666);
+	background-image: -o-linear-gradient(top, #000, #666);
+	background-image: linear-gradient(to bottom, #000, #666);
+	border: solid #000 2px;
+	text-transform: uppercase;
+}
+
+.btn.btn-default:hover,
+.btn.btn-default:active,
+.btn.btn-default:focus {
+	background: #666;
+	background-image: -webkit-linear-gradient(top, #666, #CCC);
+	background-image: -moz-linear-gradient(top, #666, #CCC);
+	background-image: -ms-linear-gradient(top, #666, #CCC);
+	background-image: -o-linear-gradient(top, #666, #CCC);
+	background-image: linear-gradient(to bottom, #666, #CCC);
+	border: solid #666 2px;
+	color: #000;
+}
+
+.btn.btn-option {
 	background: #dd1d1a;
 	background-image: -webkit-linear-gradient(top, #dd1d1a, #921513);
 	background-image: -moz-linear-gradient(top, #dd1d1a, #921513);
@@ -100,9 +129,10 @@ button {
 	background-image: linear-gradient(to bottom, #dd1d1a, #921513);
 	border: solid #921513 2px;
 }
-.btn.btn-default:hover,
-.btn.btn-default:active,
-.btn.btn-default:focus {
+
+.btn.btn-option:hover,
+.btn.btn-option:active,
+.btn.btn-option:focus {
 	background: #921513;
 	background-image: -webkit-linear-gradient(top, #921513, #570a09);
 	background-image: -moz-linear-gradient(top, #921513, #570a09);
@@ -180,10 +210,10 @@ footer {
 		font-size: 14px;
 	}
 
-	.btn.btn-default,
-	.btn.btn-default:hover,
-	.btn.btn-default:active,
-	.btn.btn-default:focus {
+	.btn.btn-option,
+	.btn.btn-option:hover,
+	.btn.btn-option:active,
+	.btn.btn-option:focus {
 		font-size: 1em;
 		padding: 10px;
 	}	
@@ -220,10 +250,10 @@ footer {
 }
 
 @media screen and (max-width: 480px) {
-	.btn.btn-default,
-	.btn.btn-default:hover,
-	.btn.btn-default:active,
-	.btn.btn-default:focus {
+	.btn.btn-option,
+	.btn.btn-option:hover,
+	.btn.btn-option:active,
+	.btn.btn-option:focus {
 		min-width: 100%;
 	}	
 }

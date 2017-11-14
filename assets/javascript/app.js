@@ -286,7 +286,7 @@ var game = {
 	        }
      		optionsUsed.push(randomOptionIndex);
        		var optionDiv = $('<div class="option-div">');
-       		var option = $('<button>').attr('data-id', randomOptionIndex).addClass('answer btn btn-default').text(this.currentQuestion.options[randomOptionIndex].answerText);
+       		var option = $('<button>').attr('data-id', randomOptionIndex).addClass('answer btn btn-option').text(this.currentQuestion.options[randomOptionIndex].answerText);
        		$('#options').append(optionDiv.append(option));
         }
 
