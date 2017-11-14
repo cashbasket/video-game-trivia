@@ -311,8 +311,7 @@ var game = {
 		$('h1').hide();
 		$('h2').addClass('hidden');
 		$('#qCountDown').removeClass('red');
-		var status;
-		var correctAnswerText = '';
+		var status, correctAnswerText;
 
 		//clear the question timer and the image div!
 		clearInterval(this.qCountDown);
@@ -357,7 +356,6 @@ var game = {
 		var img = $('<img />').attr('src', this.currentQuestion.questionImage).attr('alt', 'Image of the correct answer').addClass('img-responsive');
 		$('#answerImage').append(img);
 
-		// one biiiiig setInterval
 		var seconds = 6;  
 		if(game.remainingQuestions.length > 0) {
     		$('#countDownIntro').text('Next question in: ');
@@ -377,29 +375,7 @@ var game = {
 			  		game.getAndDisplayQuestion();
 				}
 				else {
-					$('#questionDisplay, #resultDisplay').addClass('hidden');
-					$('#endDisplay').removeClass('hidden');
-					$('#correctTotal').text(game.correctAnswers);
-					$('#incorrectTotal').text(game.incorrectAnswers);
-					$('#unansweredTotal').text(game.unanswered);
-
-					var img = $('<img />').addClass('img-responsive');
-					if(game.correctAnswers > 7) {
-						img.attr('src', 'assets/images/a-winner-is-you.gif').attr('alt', 'A winner is you!');
-						$('#endText').text('You clearly know your video games. Nice work!');
-						game.playSound('cheer');
-					}
-					else if (game.correctAnswers <= 7 && game.correctAnswers >=5) {
-						img.attr('src', 'assets/images/noid.gif').attr('alt', 'Image of the Noid');
-						$('#endText').text('Meh. You did an adequate job, I\'d say.');
-						game.playSound('meh');
-					}
-					else {
-						img.attr('src','assets/images/duck-hunt.gif').attr('alt', 'Image of laughing dog');
-						$('#endText').text('Yeesh... you\'re pretty bad at this.');
-						game.playSound('boo');
-					}
-					$('#endImage').append(img);				
+					game.endGame();			
 				}	
             }
             else {
@@ -407,6 +383,31 @@ var game = {
             }
         }, 1000);
         this.questionNum++;
+	},
+	endGame: function() {
+		$('#questionDisplay, #resultDisplay').addClass('hidden');
+		$('#endDisplay').removeClass('hidden');
+		$('#correctTotal').text(this.correctAnswers);
+		$('#incorrectTotal').text(this.incorrectAnswers);
+		$('#unansweredTotal').text(this.unanswered);
+
+		var img = $('<img />').addClass('img-responsive');
+		if(this.correctAnswers > 7) {
+			img.attr('src', 'assets/images/a-winner-is-you.gif').attr('alt', 'A winner is you!');
+			$('#endText').text('You clearly know your video games. Nice work!');
+			this.playSound('cheer');
+		}
+		else if (this.correctAnswers <= 7 && this.correctAnswers >=5) {
+			img.attr('src', 'assets/images/noid.gif').attr('alt', 'Image of the Noid');
+			$('#endText').text('Meh. You did an adequate job, I\'d say.');
+			this.playSound('meh');
+		}
+		else {
+			img.attr('src','assets/images/duck-hunt.gif').attr('alt', 'Image of laughing dog');
+			$('#endText').text('Yeesh... you\'re pretty bad at this.');
+			this.playSound('boo');
+		}
+		$('#endImage').append(img);	
 	},
 	playSound: function(type) {
 		var audio = document.getElementById('audio');
@@ -425,7 +426,7 @@ var game = {
 	}
 };
 
-//do the actual preloading (ugly, but it works!)
+//do the actual preloading
 preloadAssets('assets/images/star.gif',	'assets/images/a-winner-is-you.gif', 'assets/images/azeroth.gif', 'assets/images/contra.gif', 'assets/images/doom.gif',	'assets/images/duck-hunt.gif', 'assets/images/ganon.gif', 'assets/images/macho-man.gif', 'assets/images/nes.gif', 'assets/images/nin.gif', 'assets/images/noid.gif', 'assets/images/samus.gif',	'assets/images/snes.gif', 'assets/images/the-darkness.jpg', 'assets/images/yoshi.gif','assets/wav/smb_gameover.wav', 'assets/wav/smb_mariodie.wav','assets/wav/smb_stage_clear.wav');
 
 $(document).ready(function() {
