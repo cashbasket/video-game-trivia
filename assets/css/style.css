@@ -218,4 +218,8 @@ footer {
         display: block;
         right: 50%;
     }
+
+    .star {
+    	display: none;
+    }
 }
