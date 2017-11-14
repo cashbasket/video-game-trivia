@@ -189,11 +189,19 @@ footer {
 		font-size: 14px;
 	}
 
-	.answer {
-		padding: 5px;
-	}
+	.btn.btn-default,
+	.btn.btn-default:hover,
+	.btn.btn-default:active,
+	.btn.btn-default:focus {
+		font-size: 1em;
+		padding: 10px;
+	}	
 	
 	h2 {
+		font-size: 2em;
+	}
+
+	h3 {
 		font-size: 1em;
 	}
 
@@ -218,4 +226,13 @@ footer {
     .star {
     	display: none;
     }
+}
+
+@media screen and (max-width: 480px) {
+	.btn.btn-default,
+	.btn.btn-default:hover,
+	.btn.btn-default:active,
+	.btn.btn-default:focus {
+		min-width: 100%;
+	}	
 }
