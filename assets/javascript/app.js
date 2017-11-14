@@ -215,12 +215,19 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-//image preloading stuff
-var myimages = [];
-function preloadImages(){
-	for (i = 0; i < preloadImages.arguments.length; i++){
-		myimages[i] = new Image();
-		myimages[i].src = preloadImages.arguments[i];
+var myAssets = [];
+//function for preloading images and audio
+function preloadAssets() {
+	for (i = 0; i < preloadAssets.arguments.length; i++){
+		var currentAssetSplit = preloadAssets.arguments[i].split('.');
+		var ext = currentAssetSplit.pop();
+		if(ext === 'jpg' || ext === 'gif' || ext === 'png') {
+			myAssets[i] = new Image();
+		}
+		else {
+			myAssets[i] = new Audio();
+		}
+		myAssets[i].src = preloadAssets.arguments[i];
 	}
 }
 
@@ -418,21 +425,8 @@ var game = {
 	}
 };
 
-preloadImages('assets/images/star.gif',
-				'assets/images/a-winner-is-you.gif',
-				'assets/images/azeroth.gif',
-				'assets/images/contra.gif',
-				'assets/images/doom.gif',
-				'assets/images/duck-hunt.gif',
-				'assets/images/ganon.gif',
-				'assets/images/macho-man.gif',
-				'assets/images/nes.gif',
-				'assets/images/nin.gif',
-				'assets/images/noid.gif',
-				'assets/images/samus.gif',
-				'assets/images/snes.gif',
-				'assets/images/the-darkness.jpg',
-				'assets/images/yoshi.gif');
+//do the actual preloading (ugly, but it works!)
+preloadAssets('assets/images/star.gif',	'assets/images/a-winner-is-you.gif', 'assets/images/azeroth.gif', 'assets/images/contra.gif', 'assets/images/doom.gif',	'assets/images/duck-hunt.gif', 'assets/images/ganon.gif', 'assets/images/macho-man.gif', 'assets/images/nes.gif', 'assets/images/nin.gif', 'assets/images/noid.gif', 'assets/images/samus.gif',	'assets/images/snes.gif', 'assets/images/the-darkness.jpg', 'assets/images/yoshi.gif','assets/mp3/cheering.mp3', 'assets/mp3/medium-applause.mp3','assets/mp3/boo.mp3');
 
 $(document).ready(function() {
 	game.init();
