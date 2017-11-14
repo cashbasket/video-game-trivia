@@ -286,7 +286,7 @@ var game = {
 	        }
      		optionsUsed.push(randomOptionIndex);
        		var optionDiv = $('<div class="option-div">');
-       		var option = $('<a>').attr('data-id', randomOptionIndex).addClass('answer').text(this.currentQuestion.options[randomOptionIndex].answerText);
+       		var option = $('<button>').attr('data-id', randomOptionIndex).addClass('answer btn btn-default').text(this.currentQuestion.options[randomOptionIndex].answerText);
        		$('#options').append(optionDiv.append(option));
         }
 
@@ -320,6 +320,7 @@ var game = {
 		if(answerIndex >= 0 && this.currentQuestion.options[answerIndex].isCorrect) {
 			this.correctAnswers++;
 			status = 'correct';
+			this.playSound('correct');
 		}
 		else {
 			if (answerIndex >= 0) {
@@ -330,6 +331,7 @@ var game = {
 				this.unanswered++;
 				status = 'unanswered';
 			}
+			this.playSound('incorrect');
 		}
 
 		for(var i = 0 ; i < this.currentQuestion.options.length; i++) {
@@ -412,6 +414,12 @@ var game = {
 	playSound: function(type) {
 		var audio = document.getElementById('audio');
 		switch (type) {
+			case 'correct':
+				audio.src = 'assets/wav/smb_coin.wav';
+				break;
+			case 'incorrect':
+				audio.src = 'assets/wav/smb_bump.wav';
+				break;
 			case 'cheer':
 				audio.src = 'assets/wav/smb_stage_clear.wav';
 				break;
@@ -427,7 +435,7 @@ var game = {
 };
 
 //do the actual preloading
-preloadAssets('assets/images/star.gif',	'assets/images/a-winner-is-you.gif', 'assets/images/azeroth.gif', 'assets/images/contra.gif', 'assets/images/doom.gif',	'assets/images/duck-hunt.gif', 'assets/images/ganon.gif', 'assets/images/macho-man.gif', 'assets/images/nes.gif', 'assets/images/nin.gif', 'assets/images/noid.gif', 'assets/images/samus.gif',	'assets/images/snes.gif', 'assets/images/the-darkness.jpg', 'assets/images/yoshi.gif','assets/wav/smb_gameover.wav', 'assets/wav/smb_mariodie.wav','assets/wav/smb_stage_clear.wav');
+preloadAssets('assets/images/star.gif',	'assets/images/a-winner-is-you.gif', 'assets/images/azeroth.gif', 'assets/images/contra.gif', 'assets/images/doom.gif',	'assets/images/duck-hunt.gif', 'assets/images/ganon.gif', 'assets/images/macho-man.gif', 'assets/images/nes.gif', 'assets/images/nin.gif', 'assets/images/noid.gif', 'assets/images/samus.gif',	'assets/images/snes.gif', 'assets/images/the-darkness.jpg', 'assets/images/yoshi.gif','assets/wav/smb_gameover.wav', 'assets/wav/smb_mariodie.wav','assets/wav/smb_stage_clear.wav','assets/wav/smb_coin.wav','assets/wav/smb_bump.wav');
 
 $(document).ready(function() {
 	game.init();

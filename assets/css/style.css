@@ -87,6 +87,7 @@ button {
 	color: #ffffff;
 	font-size: 24px;
 	padding: 10px 20px 10px 20px;
+	line-height: 1.5;
 }
 
 .btn.btn-default {
@@ -115,16 +116,11 @@ button {
 }
 
 .option-div {
-	margin: 20px;
+	margin: 15px;
 }
 
 .answer {
-	cursor: pointer;
-	text-decoration: none;
-	font-size: 20px;
-	color: #dd1d1a;
-	padding: 10px;
-	line-height: 1.5;
+	min-width: 200px;
 }
 
 .answer:hover {
