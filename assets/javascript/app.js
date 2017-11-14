@@ -246,7 +246,7 @@ var game = {
 		$('body').prepend(audio);
 		this.remainingQuestions = questions.slice(0);
 		var star = $('<img />').attr('src','assets/images/star.gif').attr('alt','Image of a rotating star').addClass('star');
-		$(star).clone().appendTo('h1').clone().prependTo('h1');
+		$(star).appendTo('h1').clone().prependTo('h1');
 	},
 	reset: function() {
 		this.remainingQuestions = questions.slice(0);
