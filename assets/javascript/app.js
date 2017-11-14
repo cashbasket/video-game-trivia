@@ -435,7 +435,7 @@ var game = {
 };
 
 //do the actual preloading
-preloadAssets('assets/images/star.gif',	'assets/images/a-winner-is-you.gif', 'assets/images/azeroth.gif', 'assets/images/contra.gif', 'assets/images/doom.gif',	'assets/images/duck-hunt.gif', 'assets/images/ganon.gif', 'assets/images/macho-man.gif', 'assets/images/nes.gif', 'assets/images/nin.gif', 'assets/images/noid.gif', 'assets/images/samus.gif',	'assets/images/snes.gif', 'assets/images/the-darkness.jpg', 'assets/images/yoshi.gif','assets/wav/smb_gameover.wav', 'assets/wav/smb_mariodie.wav','assets/wav/smb_stage_clear.wav','assets/wav/smb_coin.wav','assets/wav/smb_bump.wav');
+preloadAssets('assets/images/star.gif',	'assets/images/a-winner-is-you.gif', 'assets/images/azeroth.gif', 'assets/images/contra.gif', 'assets/images/doom.gif',	'assets/images/duck-hunt.gif', 'assets/images/ganon.gif', 'assets/images/macho-man.gif', 'assets/images/nes.gif', 'assets/images/nin.gif', 'assets/images/noid.gif', 'assets/images/samus.gif',	'assets/images/snes.gif', 'assets/images/the-darkness.jpg', 'assets/images/yoshi.gif','assets/wav/smb_gameover.wav', 'assets/wav/smb_mariodie.wav','assets/wav/smb_stage_clear.wav', 'assets/wav/smb_coin.wav', 'assets/wav/smb_bump.wav');
 
 $(document).ready(function() {
 	game.init();
